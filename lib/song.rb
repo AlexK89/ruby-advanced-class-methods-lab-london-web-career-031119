@@ -6,6 +6,10 @@ class Song
     @@all
   end
 
+  # def initialize
+  #   @@all << self
+  # end
+
   def save
     self.class.all << self
   end
@@ -25,7 +29,10 @@ class Song
   end
 
   def self.create_by_name(name)
-    @@all << self.new_by_name(name)
+    song =  self.new_by_name(name)
+    @@all << song
+
+    song
   end
 
   def self.find_by_name(name)
@@ -53,7 +60,11 @@ class Song
   end
 
   def self.create_from_filename(file_name)
-    @@all << self.new_from_filename(file_name)
+    song = self.new_from_filename(file_name)
+
+    @@all << song
+
+    song
   end
 
   def self.destroy_all
